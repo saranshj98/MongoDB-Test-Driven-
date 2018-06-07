@@ -5,7 +5,7 @@ describe('Deleting a user', () => {
     let joe;
 
     beforeEach((done) => {
-        joe = new User({ name : "Joe San" });
+        joe = new User({ name : "San" });
         joe.save()
         .then(() => done());
     });
@@ -21,8 +21,8 @@ describe('Deleting a user', () => {
 
     it('class method remove', (done) => {
         // remove a bunch of record with somecriteria
-        User.remove({'name' : 'Saransh'})
-        .then(() => User.findOne({'name' : 'Saransh'}))
+        User.remove({'name' : 'Joe'})
+        .then(() => User.findOne({'name' : 'Joe'}))
         .then((user) => {
             assert(user === null)
             done();
@@ -30,8 +30,8 @@ describe('Deleting a user', () => {
     });
 
     it('class method findOneAndRemove ', (done) => {
-        User.findOneAndRemove({'name' : 'Saransh'})
-        .then(() => User.findOne({'name' : 'Saransh'}))
+        User.findOneAndRemove({'name' : 'Joe'})
+        .then(() => User.findOne({'name' : 'Joe'}))
         .then((user) => {
             assert(user === null)
             done();
