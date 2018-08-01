@@ -10,13 +10,15 @@ describe('Deleting a user', () => {
         .then(() => done());
     });
 
-    it('model instance remove', (done) => {
+    it('Model instance remove', (done)=>{
+        //console.log(joe)
         joe.remove()
-        .then(() => User.findOne({'name' : 'Joe'}))
-        .then((user) => {
-            assert(user === null)
-            done();
-        });
+            .then(()=> User.findOne({name: 'San'}))
+            .then((user)=>{
+                // console.log("fdfd : ", user)
+                assert(user !== null)
+                done();
+            })
     });
 
     it('class method remove', (done) => {
